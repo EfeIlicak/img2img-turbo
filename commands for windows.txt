@@ -1,14 +1,46 @@
 * deleted triton==2.0.0 from requirements.txt
 * created outputs directory
 
-
 pip install -r requirements.txt
-
 
 * I have cuda build 12.1 (nvcc --version) with CPU-Only version of pytorch.
 * I will uninstall pytorch (pip uninstall torch torchvision torchaudio) 
 * And I reinstall pytorch with cuda (pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121)
 
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchdata 0.6.1 requires torch==2.0.1, but you have torch 2.3.1+cu121 which is incompatible.
+xformers 0.0.22 requires torch==2.0.1, but you have torch 2.3.1+cu121 which is incompatible.
+
+pip uninstall torchdata xformers
+
+import torch
+
+print("PyTorch Version:", torch.__version__)
+print("CUDA Version:", torch.version.cuda)
+print("cuDNN Version:", torch.backends.cudnn.version())
+print("Is CUDA available:", torch.cuda.is_available())
+
+
+>>> print("PyTorch Version:", torch.__version__)
+PyTorch Version: 2.3.0+cpu
+>>> print("CUDA Version:", torch.version.cuda)
+CUDA Version: None
+>>> print("cuDNN Version:", torch.backends.cudnn.version())
+cuDNN Version: None
+>>> print("Is CUDA available:", torch.cuda.is_available())
+Is CUDA available: False
+
+
+pip install torchdata xformers
+
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+torchaudio 2.3.1+cu121 requires torch==2.3.1+cu121, but you have torch 2.3.0 which is incompatible.
+torchvision 0.18.1+cu121 requires torch==2.3.1+cu121, but you have torch 2.3.0 which is incompatible.
+
+pip uninstall torchaudio torchvision
+
+conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=12.1 -c pytorch -c nvidia
 
 
 python src\inference_paired.py --model_name "edge_to_image" --input_image "assets\examples\bird.png" --prompt "a purple bird"  --output_dir "outputs"
