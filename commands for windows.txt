@@ -1,8 +1,16 @@
 * deleted triton==2.0.0 from requirements.txt
+* created outputs directory
+
 
 pip install -r requirements.txt
 
-python src\inference_paired.py --model_name "edge_to_image" --input_image "assets\examples\bird.png" --prompt "a purple bird"  --output_dir "outputs"
 
+* I have cuda build 12.1 (nvcc --version) with CPU-Only version of pytorch.
+* I will uninstall pytorch (pip uninstall torch torchvision torchaudio) 
+* And I reinstall pytorch with cuda (pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121)
+
+
+
+python src\inference_paired.py --model_name "edge_to_image" --input_image "assets\examples\bird.png" --prompt "a purple bird"  --output_dir "outputs"
 
 python src\inference_unpaired.py --model_name "day_to_night" --input_image "assets\examples\day2night_input.png" --output_dir "outputs"
