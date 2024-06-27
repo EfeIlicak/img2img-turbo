@@ -66,7 +66,8 @@ then
 
 pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu121
 
-
+download "triton-2.0.0-cp310-cp310-win_amd64.whl" from https://github.com/PrashantSaikia/Triton-for-Windows 
+and pip install triton-2.0.0-cp310-cp310-win_amd64.whl
 
 
 python src\inference_paired.py --model_name "edge_to_image" --input_image "assets\examples\bird.png" --prompt "a purple bird"  --output_dir "outputs"
