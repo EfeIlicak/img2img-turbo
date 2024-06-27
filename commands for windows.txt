@@ -78,3 +78,6 @@ python src\inference_unpaired.py --model_name "day_to_night" --input_image "asse
 * For training install weights and biases
 pip install wandb
 
+pip install vision_aided_loss
+
+
