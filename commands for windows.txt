@@ -43,6 +43,34 @@ pip uninstall torchaudio torchvision
 conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=12.1 -c pytorch -c nvidia
 
 
+pip uninstall torch
+
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+pip install update xformers
+
+pip install torchvision
+
+
+--
+
+pip uninstall xformers 
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+
+conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=12.1 -c pytorch -c nvidia
+or
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
+
+then
+
+pip3 install -U xformers --index-url https://download.pytorch.org/whl/cu121
+
+
+
+
 python src\inference_paired.py --model_name "edge_to_image" --input_image "assets\examples\bird.png" --prompt "a purple bird"  --output_dir "outputs"
 
 python src\inference_unpaired.py --model_name "day_to_night" --input_image "assets\examples\day2night_input.png" --output_dir "outputs"
+
+* For unpaired inference, xformers is necessary! 
