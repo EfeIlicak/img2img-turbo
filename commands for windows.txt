@@ -58,8 +58,6 @@ pip uninstall xformers
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
 
-conda install pytorch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 pytorch-cuda=12.1 -c pytorch -c nvidia
-or
 pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
 
 then
